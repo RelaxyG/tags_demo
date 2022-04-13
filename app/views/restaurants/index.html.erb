@@ -20,7 +20,7 @@
         <td><%= restaurant.description %></td>
         <td><%= restaurant.user_id %></td>
         <td><%restaurant.tag_list.each do |tag|%>
-          <%=tag%>
+          <%=link_to tag, tagged_path(tag: tag)%>
           <%end%>
         </td>
         <td><%= link_to 'Show', restaurant %></td>

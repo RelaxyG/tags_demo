@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :restaurants
   devise_for :users
-  root to: 'pages#home'
+  root to: 'restaurants#index'
   get '/tagged', to: "restaurants#tagged", as: :tagged
 
 # app/controllers/restaurants_controller.rb

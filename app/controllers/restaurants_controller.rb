@@ -17,6 +17,15 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def tagged
+    if params[:tag].present?
+      @restaurants = Restaurant.tagged_with(params[:tag])
+    else
+      @restaurants = Restaurant.all
+    end
+    render :index
+  end
+
   # GET /restaurants/1/edit
   def edit
   end
