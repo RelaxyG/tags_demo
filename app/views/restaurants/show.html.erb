@@ -4,14 +4,16 @@
   <strong>Name:</strong>
   <%= @restaurant.name %>
 </p>
-<ul>
-  <% @related_restaurants.each do |r| %>
-    <li><%= r.name %></li>
-  <% end %>
-</ul>
 <p>
   <strong>Description:</strong>
   <%= @restaurant.description %>
+</p>
+<p>
+  <strong>Some other options:</strong>
+  <% @related_restaurants.each do |restaurant| %>
+    <%=link_to restaurant.name, restaurant_path(restaurant)%>
+  <%end%>
+
 </p>
 
 <p>
