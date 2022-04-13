@@ -18,6 +18,7 @@ class RestaurantsController < ApplicationController
   end
 
   def tagged
+    ActsAsTaggableOn.force_lowercase=true
     if params[:tag].present?
       @restaurants = Restaurant.tagged_with(params[:tag])
     else
