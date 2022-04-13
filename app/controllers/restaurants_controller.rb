@@ -8,6 +8,8 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1 or /restaurants/1.json
   def show
+    @restaurant = Restaurant.find(params[:id])
+    @related_restaurants = @restaurant.find_related_tags
   end
 
   # GET /restaurants/new
@@ -65,6 +67,7 @@ class RestaurantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :description, :user_id)
+      params.require(:restaurant).permit(:name, :description, :user_id, tag_list: [])
     end
+
 end

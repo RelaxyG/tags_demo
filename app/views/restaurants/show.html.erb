@@ -4,7 +4,11 @@
   <strong>Name:</strong>
   <%= @restaurant.name %>
 </p>
-
+<ul>
+  <% @related_restaurants.each do |r| %>
+    <li><%= r.name %></li>
+  <% end %>
+</ul>
 <p>
   <strong>Description:</strong>
   <%= @restaurant.description %>
